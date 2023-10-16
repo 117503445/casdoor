@@ -1,0 +1,8 @@
+docker build -t 117503445/casdoor .
+docker tag 117503445/casdoor registry.cn-hangzhou.aliyuncs.com/117503445-mirror/casdoor
+docker push registry.cn-hangzhou.aliyuncs.com/117503445-mirror/casdoor
+
+cd web
+docker build -t 117503445/casdoor-fe-builder .
+docker run --rm -v ${PWD}:/web 117503445/casdoor-fe-builder
+# output in `build` dir
